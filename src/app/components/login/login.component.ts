@@ -47,11 +47,10 @@ export class LoginComponent implements OnInit {
     public login(): void {
         if (this.form.valid) {
             const walletLoad = new WalletLoad(this.form.value.wallet, this.form.value.password);
-            console.log(walletLoad);
+            this.globalService.setWalletName(this.form.value.wallet);
             this.apiService.loadWallet(walletLoad).subscribe((response) => {
-                console.log(response);
-                if (response){
-                    this.router.navigate(['/wallet']);
+                if (response !== undefined){
+                    this.router.navigate(['/home']);
                 }
             });
         }

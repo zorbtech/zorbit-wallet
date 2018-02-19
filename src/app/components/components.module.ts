@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
-import { MatSelectModule, MatCardModule, MatInputModule } from '@angular/material';
+import { MatSelectModule, MatCardModule, MatInputModule,
+         MatTabsModule, MatGridListModule, MatButtonModule,
+         MatListModule, MatTableModule } from '@angular/material';
 
 import { BalanceComponent, DashboardComponent, HistoryComponent,
-         LoginComponent, CreateWalletComponent,
-         RestoreWalletComponent } from './';
+         HomeComponent, LoginComponent, CreateWalletComponent,
+         TransactionHistoryComponent, RestoreWalletComponent } from './';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -24,23 +26,33 @@ import { componentsRoutes } from './components.routes';
         SharedModule,
         MatSelectModule,
         MatCardModule,
-        MatInputModule
+        MatInputModule,
+        MatTabsModule,
+        MatGridListModule, 
+        MatButtonModule,
+        MatListModule, 
+        MatTableModule
     ],
     declarations: [
         BalanceComponent,
         DashboardComponent,
         HistoryComponent,
+        HomeComponent,
+        HomeComponent,
         LoginComponent,
         CreateWalletComponent,
-        RestoreWalletComponent
+        RestoreWalletComponent,
+        TransactionHistoryComponent
     ],
     exports: [
         BalanceComponent,
         DashboardComponent,
+        HomeComponent,
         HistoryComponent,
         LoginComponent,
         CreateWalletComponent,
-        RestoreWalletComponent
+        RestoreWalletComponent,
+        TransactionHistoryComponent
     ]
 })
 

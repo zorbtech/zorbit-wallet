@@ -11,7 +11,8 @@ import { GlobalService } from './global.service';
 
 import { WalletCreation, WalletFileModel, WalletRecovery,
          WalletLoad, WalletInfo, Mnemonic,
-         FeeEstimation, TransactionBuilding, TransactionSending } from '../dtos';
+         FeeEstimation, TransactionBuilding, TransactionSending,
+         AccountBalance, WalletBalanceModel, WalletHistory } from '../dtos';
 
 @Injectable()
 export class ApiService {
@@ -80,16 +81,14 @@ export class ApiService {
         .map((response: Response) => response);
     }
 
-    public getWalletBalance(data: WalletInfo): Observable<any> {
+    public getWalletBalance(data: WalletInfo): Observable<WalletBalanceModel> {
 
-      let params: HttpParams = new HttpParams();
-      params.set('walletName', data.walletName);
+      const params = new HttpParams().set('walletName', data.walletName);
 
       return Observable
         .interval(this.pollingInterval)
         .startWith(0)
-        .switchMap(() => this.http.get(this.apiUrl + '/wallet/balance', {headers: this.headers, params: params}))
-        .map((response: Response) => response);
+        .switchMap(() => this.http.get<WalletBalanceModel>(this.apiUrl + '/wallet/balance', {headers: this.headers, params: params}));
     }
 
     public getMaximumBalance(data): Observable<any> {
@@ -105,16 +104,14 @@ export class ApiService {
         .map((response: Response) => response);
     }
 
-    public getWalletHistory(data: WalletInfo): Observable<any> {
+    public getWalletHistory(data: WalletInfo): Observable<WalletHistory> {
 
-      let params: HttpParams = new HttpParams();
-      params.set('walletName', data.walletName);
+      const params = new HttpParams().set('walletName', data.walletName);
 
       return Observable
         .interval(this.pollingInterval)
         .startWith(0)
-        .switchMap(() => this.http.get(this.apiUrl + '/wallet/history', {headers: this.headers, params: params}))
-        .map((response: Response) => response);
+        .switchMap(() => this.http.get<WalletHistory>(this.apiUrl + '/wallet/history', {headers: this.headers, params: params}));
     }
 
     public getUnusedReceiveAddress(data: WalletInfo): Observable<any> {

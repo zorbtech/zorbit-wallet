@@ -1,1 +1,18 @@
-<h1>Dashboard component</h1>
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile colspan="4" rowspan="1">
+        <label>Balance:</label>
+        <span class="balance">{{balance}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4" rowspan="1">
+        <label>Unconfirmed balance:</label>
+        <span class="balance">{{unconfirmedBalance}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4" rowspan="1">
+        <button mat-button (click)="send()">Send</button>
+        <button mat-button (click)="receive()">Receive</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4" rowspan="2">
+        <label>Latest Transactions:</label>
+        <zorb-transaction-history></zorb-transaction-history>
+    </mat-grid-tile>
+</mat-grid-list>

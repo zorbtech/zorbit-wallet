@@ -5,7 +5,7 @@ export class GlobalService {
   constructor() {}
 
   private walletPath: string;
-  private currentWalletName: string;
+  private currentWalletName: string = "purple" // default for dev purposes;
   private coinType: number;
   private coinName: string;
   private coinUnit: string;

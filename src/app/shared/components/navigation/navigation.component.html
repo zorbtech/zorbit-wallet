@@ -1,0 +1,31 @@
+<div class="nav-container">
+    <mat-toolbar color="primary" class="nav-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+                <mat-icon svgIcon="menu"></mat-icon>
+        </button>
+        <h1 class="nav-app-name">Zorbit</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="nav-sidenav-container">
+        <mat-sidenav #snav>
+            <mat-nav-list>
+                <mat-list-item>
+                    <a matLine routerLink="/balance" >Account Balance</a>
+                    <button mat-icon-button>
+                        <mat-icon svgIcon="account"></mat-icon>
+                    </button>
+                </mat-list-item>
+                <mat-list-item>
+                    <a matLine routerLink="/history" >Transaction History</a>
+                    <button mat-icon-button>
+                        <mat-icon svgIcon="history"></mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

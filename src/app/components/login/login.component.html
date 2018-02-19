@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-select placeholder="Wallet" formControlName="wallet">
+                    <mat-option *ngFor="let wallet of wallets" [value]="wallet">
+                        {{ wallet }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" formControlName="password" type="password">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="login()">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

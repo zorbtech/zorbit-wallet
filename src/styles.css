@@ -1,0 +1,23 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+button.mat-menu-item {
+    line-height: 24px !important;
+  }
+
+  a.mat-menu-item > mat-icon {
+    margin-bottom: 14px;
+  }
+
+  .mat-icon svg {
+    height: 24px;
+    width: 24px;
+  }
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 5px;
+}

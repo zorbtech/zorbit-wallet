@@ -8,10 +8,11 @@ import { RouterModule } from '@angular/router';
 import {
     MatMenuModule, MatIconRegistry, MatButtonModule,
     MatToolbarModule, MatIconModule, MatSidenavModule,
-    MatListModule, MatGridListModule
+    MatListModule, MatGridListModule, MatInputModule
   } from '@angular/material';
 
 import { NavigationComponent } from './components';
+import { ErrorComponent } from './validation';
 
 import { ApiService, GlobalService } from './services';
 
@@ -28,7 +29,8 @@ const modules = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatInputModule
 ]
 
 @NgModule({
@@ -40,7 +42,8 @@ const modules = [
         GlobalService
     ],
     declarations: [
-        NavigationComponent
+        NavigationComponent,
+        ErrorComponent
     ],
     exports: [
         CommonModule,
@@ -55,7 +58,8 @@ const modules = [
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        NavigationComponent
+        NavigationComponent,
+        ErrorComponent
     ]
 })
 

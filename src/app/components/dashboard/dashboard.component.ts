@@ -35,27 +35,28 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 
     public send(): void {
-        let dialogRef = this.dialog.open(SendModalComponent, { width: '500px', data: new SendModalModel() });
+        let dialogRef = this.dialog.open(SendModalComponent, { width: '500px' });
 
         this.sendSubscription = dialogRef.afterClosed().subscribe((result: SendModalModel) => {
-            console.log(result);
-            let transaction = new TransactionBuilding(
-                this.globalService.getWalletName(),
-                'account 0',
-                result.password,
-                result.destinationAddress,
-                result.amount,
-                '0',
-                true
-            );
-            this.apiService.buildTransaction(transaction).subscribe( (response : WalletBuildTransactionModel) => {
-                this.responseMessage = response;
-            },
-            error => {
-                // handle the error in here
-            }),
-            () => {
-                this.sendTransaction(this.responseMessage.hex);
+            if (result) {
+                let transaction = new TransactionBuilding(
+                    this.globalService.getWalletName(),
+                    'account 0',
+                    result.password,
+                    result.destinationAddress,
+                    result.amount,
+                    '0',
+                    true
+                );
+                this.apiService.buildTransaction(transaction).subscribe((response: WalletBuildTransactionModel) => {
+                    this.responseMessage = response;
+                },
+                    error => {
+                        // handle the error in here
+                    }),
+                    () => {
+                        this.sendTransaction(this.responseMessage.hex);
+                    }
             }
         });
     }

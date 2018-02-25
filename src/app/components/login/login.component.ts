@@ -6,6 +6,8 @@ import { WalletLoad } from '../../shared/dtos';
 
 import { ApiService, GlobalService } from '../../shared/services';
 
+import { ErrorStateMatcherImpl } from '../../shared/validation';
+
 @Component({
     selector: 'zorb-login',
     templateUrl: './login.component.html'
@@ -16,6 +18,8 @@ export class LoginComponent implements OnInit {
     public form: FormGroup;
 
     public wallets: Array<string> = new Array<string>();
+
+    public matcher: ErrorStateMatcherImpl = new ErrorStateMatcherImpl();
 
     constructor(
         private apiService: ApiService,

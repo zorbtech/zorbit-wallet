@@ -1,16 +1,16 @@
 <h1 mat-dialog-title>Receive</h1>
 <div mat-dialog-content>
   <div>
-    <label class="float-left">Your address:</label>
-    <span class="float-right">
-      <a ngxClipboard [cbContent]="address" (click)="onCopiedClick()">copy</a>
-    </span>
+    <label>Your address:</label>
+    <a ngxClipboard [cbContent]="address" (click)="onCopiedClick()">copy</a>
   </div>
   <div>
-      <div class="myAddress"><code>{{ address }}</code></div>
-      <div class="text-center" *ngIf="copied">
-        <span class="badge badge-success col">Your address has been copied to your clipboard.</span>
-      </div>
+    <div class="myAddress">
+      <code>{{ address }}</code>
+    </div>
+    <div class="text-center" *ngIf="copied">
+      <span class="badge badge-success col">Your address has been copied to your clipboard.</span>
+    </div>
   </div>
 </div>
 <div mat-dialog-actions>

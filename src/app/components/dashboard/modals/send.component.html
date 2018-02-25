@@ -1,16 +1,21 @@
 <h1 mat-dialog-title>Send</h1>
 <div mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="Amount" type="number" [(ngModel)]="data.amount">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Destination Address" [(ngModel)]="data.destinationAddress">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Password" [(ngModel)]="data.password">
-  </mat-form-field>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Amount" type="number" formControlName="amount">
+      <zorb-error [control]="form.controls['amount']" label="Amount"></zorb-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Destination Address" formControlName="destinationAddress">
+      <zorb-error [control]="form.controls['destinationAddress']" label="Destination Address"></zorb-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+      <zorb-error [control]="form.controls['password']" label="Password"></zorb-error>
+    </mat-form-field>
+  </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Send</button>
+  <button mat-button (click)="send()">Send</button>
 </div>

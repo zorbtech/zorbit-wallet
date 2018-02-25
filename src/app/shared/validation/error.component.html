@@ -1,0 +1,3 @@
+<mat-error *ngIf="control.errors" >
+    <span *ngIf="control.touched && control.errors.required">{{name}} is required</span>{{error}}
+</mat-error>

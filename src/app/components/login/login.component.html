@@ -8,9 +8,11 @@
                         {{ wallet }}
                     </mat-option>
                 </mat-select>
+                <zorb-error [control]="form.controls['wallet']" label="Wallet"></zorb-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Password" formControlName="password" type="password">
+                <zorb-error [control]="form.controls['password']" label="Password"></zorb-error>
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions>

@@ -1,4 +1,4 @@
-import { AccountBalance } from "./account-balance";
+import { AccountBalance } from '../account/account-balance';
 
 export class WalletBalanceModel {
     public balances: Array<AccountBalance>;

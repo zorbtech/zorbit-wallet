@@ -12,7 +12,11 @@ import { GlobalService } from './global.service';
 import { WalletCreation, WalletFileModel, WalletRecovery,
          WalletLoad, WalletInfo, Mnemonic,
          FeeEstimation, TransactionBuilding, TransactionSending,
-         AccountBalance, WalletBalanceModel, WalletHistory } from '../dtos';
+         AccountBalance, WalletBalanceModel, WalletHistory,
+         WalletBuildTransactionModel, 
+         WalletSendTransactionModel,
+         HdAccount} from '../dtos';
+import { HttpParamsOptions } from '@angular/common/http/src/params';
 
 @Injectable()
 export class ApiService {
@@ -117,19 +121,19 @@ export class ApiService {
     public getUnusedReceiveAddress(data: WalletInfo): Observable<any> {
 
       let params: HttpParams = new HttpParams();
-      params.set('walletName', data.walletName);
-      params.set('accountName', "account 0"); //temporary
+      params = params.append('walletName', data.walletName);
+      params = params.append('accountName', "account 0"); //temporary
+      console.log(params);
       return this.http
-        .get(this.apiUrl + '/wallet/unusedaddress', {headers: this.headers, params: params})
-        .map((response: Response) => response);
+        .get(this.apiUrl + '/wallet/unusedaddress', {headers: this.headers, params: params});
     }
 
     public getUnusedReceiveAddresses(data: WalletInfo, count: string): Observable<any> {
 
       let params: HttpParams = new HttpParams();
-      params.set('walletName', data.walletName);
-      params.set('accountName', "account 0"); //temporary
-      params.set('count', count);
+      params = params.append('walletName', data.walletName);
+      params = params.append('accountName', "account 0"); //temporary
+      params = params.append('count', count);
       return this.http
         .get(this.apiUrl + '/wallet/unusedaddresses', {headers: this.headers, params: params})
         .map((response: Response) => response);
@@ -160,18 +164,16 @@ export class ApiService {
         .map((response: Response) => response);
     }
 
-    public buildTransaction(data: TransactionBuilding): Observable<any> {
+    public buildTransaction(data: TransactionBuilding): Observable<WalletBuildTransactionModel> {
 
       return this.http
-        .post(this.apiUrl + '/wallet/build-transaction', JSON.stringify(data), {headers: this.headers})
-        .map((response: Response) => response);
+        .post<WalletBuildTransactionModel>(this.apiUrl + '/wallet/build-transaction', JSON.stringify(data), {headers: this.headers});
     }
 
-    public sendTransaction(data: TransactionSending): Observable<any> {
+    public sendTransaction(data: TransactionSending): Observable<WalletSendTransactionModel> {
 
       return this.http
-        .post(this.apiUrl + '/wallet/send-transaction', JSON.stringify(data), {headers: this.headers})
-        .map((response: Response) => response);
+        .post<WalletSendTransactionModel>(this.apiUrl + '/wallet/send-transaction', JSON.stringify(data), {headers: this.headers});
     }
 
     public shutdownNode(): Observable<any> {

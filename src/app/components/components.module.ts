@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ClipboardModule } from 'ngx-clipboard';
 
 import { MatSelectModule, MatCardModule, MatInputModule,
          MatTabsModule, MatGridListModule, MatButtonModule,
-         MatListModule, MatTableModule } from '@angular/material';
+         MatListModule, MatTableModule, MatDialogModule } from '@angular/material';
 
 import { BalanceComponent, DashboardComponent, HistoryComponent,
          HomeComponent, LoginComponent, CreateWalletComponent,
-         TransactionHistoryComponent, RestoreWalletComponent } from './';
+         TransactionHistoryComponent, RestoreWalletComponent,
+         SendModalComponent, ReceiveModalComponent } from './';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -20,6 +22,7 @@ import { componentsRoutes } from './components.routes';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
+        ClipboardModule,
         RouterModule.forRoot(
             componentsRoutes
         ),
@@ -31,7 +34,8 @@ import { componentsRoutes } from './components.routes';
         MatGridListModule, 
         MatButtonModule,
         MatListModule, 
-        MatTableModule
+        MatTableModule,
+        MatDialogModule
     ],
     declarations: [
         BalanceComponent,
@@ -42,7 +46,9 @@ import { componentsRoutes } from './components.routes';
         LoginComponent,
         CreateWalletComponent,
         RestoreWalletComponent,
-        TransactionHistoryComponent
+        TransactionHistoryComponent,
+        SendModalComponent,
+        ReceiveModalComponent
     ],
     exports: [
         BalanceComponent,
@@ -53,6 +59,10 @@ import { componentsRoutes } from './components.routes';
         CreateWalletComponent,
         RestoreWalletComponent,
         TransactionHistoryComponent
+    ],
+    entryComponents: [
+        SendModalComponent,
+        ReceiveModalComponent
     ]
 })
 

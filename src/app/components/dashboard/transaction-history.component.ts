@@ -16,7 +16,7 @@ export class TransactionHistoryComponent implements OnInit, OnDestroy {
 
     private subscription: Subscription;
 
-    constructor(private apiService: ApiService, private globalService: GlobalService){}
+    constructor(private apiService: ApiService, private globalService: GlobalService) { }
 
     public ngOnInit(): void {
         const walletInfo = new WalletInfo(this.globalService.getWalletName());
@@ -26,7 +26,9 @@ export class TransactionHistoryComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
 }

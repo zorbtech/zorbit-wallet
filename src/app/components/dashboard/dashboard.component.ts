@@ -66,8 +66,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.subscription.unsubscribe();
-        this.sendSubscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
+        if (this.sendSubscription) {
+            this.sendSubscription.unsubscribe();
+        }
     }
 
     private sendTransaction(hex: string): void {

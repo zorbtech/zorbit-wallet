@@ -31,14 +31,13 @@ export class ApiService {
         .get<WalletFileModel>(this.apiUrl + '/wallet/files');
      }
 
-     public getNewMnemonic(): Observable<any> {
+     public getNewMnemonic(): Observable<string> {
       let params: HttpParams = new HttpParams();
-      params.set('language', 'English');
-      params.set('wordCount', '12');
+      params = params.append('language', 'English');
+      params = params.append('wordCount', '24');
 
       return this.http
-        .get(this.apiUrl + '/wallet/mnemonic', {headers: this.headers, params:params})
-        .map((response: Response) => response);
+        .get<string>(this.apiUrl + '/wallet/mnemonic', {headers: this.headers, params:params});
     }
 
     public createWallet(data: WalletCreation): Observable<any> {

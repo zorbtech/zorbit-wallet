@@ -1,1 +1,22 @@
-<h1>Create Wallet Component</h1>
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-title>Create New Wallet</mat-card-title>
+        <mat-card-content>
+            <mat-form-field>
+                <input matInput placeholder="Name" formControlName="name">
+                <!-- <zorb-error [control]="form.controls['name']" label="Name"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" formControlName="password" type="password">
+                <!-- <zorb-error [control]="form.controls['password']" label="Password"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+                <!-- <zorb-error [control]="form.controls['confirmPassword']" label="Confirm Password"></zorb-error> -->
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions *ngIf="form.valid">
+            <button mat-button (click)="submit()">Create</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

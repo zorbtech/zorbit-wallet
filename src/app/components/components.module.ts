@@ -11,7 +11,8 @@ import { MatSelectModule, MatCardModule, MatInputModule,
 import { BalanceComponent, DashboardComponent, HistoryComponent,
          HomeComponent, LoginComponent, CreateWalletComponent,
          TransactionHistoryComponent, RestoreWalletComponent,
-         SendModalComponent, ReceiveModalComponent } from './';
+         SendModalComponent, ReceiveModalComponent, CreateWalletService,
+         MnemonicComponent } from './';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -48,7 +49,8 @@ import { componentsRoutes } from './components.routes';
         RestoreWalletComponent,
         TransactionHistoryComponent,
         SendModalComponent,
-        ReceiveModalComponent
+        ReceiveModalComponent,
+        MnemonicComponent
     ],
     exports: [
         BalanceComponent,
@@ -58,11 +60,15 @@ import { componentsRoutes } from './components.routes';
         LoginComponent,
         CreateWalletComponent,
         RestoreWalletComponent,
-        TransactionHistoryComponent
+        TransactionHistoryComponent,
+        MnemonicComponent
     ],
     entryComponents: [
         SendModalComponent,
         ReceiveModalComponent
+    ],
+    providers: [
+        CreateWalletService
     ]
 })
 

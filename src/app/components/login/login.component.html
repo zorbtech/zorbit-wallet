@@ -8,15 +8,24 @@
                         {{ wallet }}
                     </mat-option>
                 </mat-select>
-                <zorb-error [control]="form.controls['wallet']" label="Wallet"></zorb-error>
+                <!-- <zorb-error [control]="form.controls['wallet']" label="Wallet"></zorb-error> -->
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Password" formControlName="password" type="password">
-                <zorb-error [control]="form.controls['password']" label="Password"></zorb-error>
+                <!-- <zorb-error [control]="form.controls['password']" label="Password"></zorb-error> -->
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button (click)="login()">Login</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
+            <p>To create or restore a wallet click the relevant button bellow:</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="create()">Create</button>
+            <button mat-button (click)="restore()">Restore</button>
         </mat-card-actions>
     </mat-card>
 </form>

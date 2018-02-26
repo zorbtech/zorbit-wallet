@@ -60,4 +60,12 @@ export class LoginComponent implements OnInit {
         }
     }
 
+    public create(): void {
+        this.router.navigate(['/create-wallet']);
+    }
+
+    public restore(): void {
+        this.router.navigate(['/restore-wallet']);
+    }
+
 }

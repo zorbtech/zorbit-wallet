@@ -12,7 +12,7 @@ import { BalanceComponent, DashboardComponent, HistoryComponent,
          HomeComponent, LoginComponent, CreateWalletComponent,
          TransactionHistoryComponent, RestoreWalletComponent,
          SendModalComponent, ReceiveModalComponent, CreateWalletService,
-         MnemonicComponent } from './';
+         MnemonicComponent, ConfirmMnemonicComponent } from './';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -50,7 +50,8 @@ import { componentsRoutes } from './components.routes';
         TransactionHistoryComponent,
         SendModalComponent,
         ReceiveModalComponent,
-        MnemonicComponent
+        MnemonicComponent,
+        ConfirmMnemonicComponent
     ],
     exports: [
         BalanceComponent,
@@ -61,7 +62,8 @@ import { componentsRoutes } from './components.routes';
         CreateWalletComponent,
         RestoreWalletComponent,
         TransactionHistoryComponent,
-        MnemonicComponent
+        MnemonicComponent,
+        ConfirmMnemonicComponent
     ],
     entryComponents: [
         SendModalComponent,

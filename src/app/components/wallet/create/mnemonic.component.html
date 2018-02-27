@@ -1,12 +1,12 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>Secret Words</mat-card-title>
-        <p>Please write down your secret words and password.</p>
-        <p>You will need both to recover your wallet in the future.</p>
+        <mat-card-subtitle>Please write down your secret words and password.</mat-card-subtitle>
+        <mat-card-subtitle>You will need both to recover your wallet in the future.</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-list role="list" *ngFor="let mnemoic of createWalletService.getMnemonic()">
-            <mat-list-item role="listitem">{{ mnemonic }}</mat-list-item>
+        <mat-list role="list">
+            <mat-list-item *ngFor="let mnemonic of createWalletService.getMnemonic()" role="listitem">{{ mnemonic }}</mat-list-item>
         </mat-list>
     </mat-card-content>
     <mat-card-actions>

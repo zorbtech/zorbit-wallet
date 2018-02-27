@@ -40,10 +40,9 @@ export class ApiService {
         .get<string>(this.apiUrl + '/wallet/mnemonic', {headers: this.headers, params:params});
     }
 
-    public createWallet(data: WalletCreation): Observable<any> {
+    public createWallet(data: WalletCreation): Observable<string> {
       return this.http
-        .post(this.apiUrl + '/wallet/create/', JSON.stringify(data), {headers: this.headers})
-        .map((response: Response) => response);
+        .post<string>(this.apiUrl + '/wallet/create/', JSON.stringify(data), {headers: this.headers});
     }
 
     public recoverWallet(data: WalletRecovery): Observable<any> {

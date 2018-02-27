@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 import { BalanceComponent, DashboardComponent, HistoryComponent,
          HomeComponent, LoginComponent, CreateWalletComponent,
-         RestoreWalletComponent, MnemonicComponent } from './';
+         RestoreWalletComponent, MnemonicComponent, ConfirmMnemonicComponent } from './';
 
 export const componentsRoutes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -13,5 +13,6 @@ export const componentsRoutes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'wallet/create', component: CreateWalletComponent},
     { path: 'wallet/mnemonic', component: MnemonicComponent},
+    { path: 'wallet/confirm-mnemonic', component: ConfirmMnemonicComponent},
     { path: 'restore-wallet', component: RestoreWalletComponent}
 ]

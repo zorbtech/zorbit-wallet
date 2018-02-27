@@ -2,21 +2,23 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Wallet } from '../models/wallet';
 import { ApiService, GlobalService } from '../../../shared/services';
 import { Subscription } from 'rxjs/Subscription';
+import { WalletCreation } from '../../../shared/dtos';
 
 @Injectable()
 export class CreateWalletService implements OnDestroy{
 
-    private mnemonic: Array<string> = new Array<string>();
+    private displayMnemonic: Array<string> = new Array<string>();
+    private mnemonic: Array<string>;
 
-    private _wallet: Wallet = null;
+    private _wallet: WalletCreation;
 
     private mnemonicSubscription: Subscription;
 
-    public get Wallet(): Wallet {
+    public get Wallet(): WalletCreation {
         return this._wallet;
     }
 
-    public set Wallet(wallet: Wallet) {
+    public set Wallet(wallet: WalletCreation) {
         this._wallet = wallet;
     }
 
@@ -30,16 +32,18 @@ export class CreateWalletService implements OnDestroy{
 
     public generateNewMnemonic(): void {
         this.mnemonicSubscription = this.apiService.getNewMnemonic().subscribe((response: string) => {
+            this.Wallet.mnemonic = response;
             this.mnemonic = response.split(' ');
             let index = 1;
-            for (let mnemonic in this.mnemonic){
-                this.mnemonic[index - 1] = index + '.' + mnemonic;
+            for (let mnemonic of this.mnemonic){
+                this.displayMnemonic[index - 1] = index + '. ' + mnemonic;
+                index++;
             }
         });
     }
 
-    public getMnmenoic(): Array<string> {
-        return this.mnemonic;
+    public getMnemonic(): Array<string> {
+        return this.displayMnemonic;
     }
 
     public checkMnmenoic(words: Array<string>): boolean {
@@ -47,12 +51,11 @@ export class CreateWalletService implements OnDestroy{
 
         let index = 3;
 
-        for(let word in words){
+        for(let word of words){
             if(!isValid){ return isValid; }
             isValid = (word === this.mnemonic[index]);
             index += 4;
         }
-
         return true;
     }
 

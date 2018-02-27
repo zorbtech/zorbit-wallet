@@ -1,31 +1,37 @@
 <form [formGroup]="form">
-        <mat-card>
-            <mat-card-title>Login</mat-card-title>
-            <mat-card-content>
-                <mat-form-field>
-                    <mat-select placeholder="Wallet" formControlName="wallet">
-                        <mat-option *ngFor="let wallet of wallets" [value]="wallet">
-                            {{ wallet }}
-                        </mat-option>
-                    </mat-select>
-                    <!-- <zorb-error [control]="form.controls['wallet']" label="Wallet"></zorb-error> -->
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Password" formControlName="password" type="password">
-                    <!-- <zorb-error [control]="form.controls['password']" label="Password"></zorb-error> -->
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button (click)="login()">Login</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card>
-            <mat-card-content>
-                <p>To create or restore a wallet click the relevant button bellow:</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button (click)="create()">Create</button>
-                <button mat-button (click)="restore()">Restore</button>
-            </mat-card-actions>
-        </mat-card>
-    </form>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Confirm Secret Word</mat-card-title>
+            <mat-card-subtitle>Please confirm your secret words.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+                <input matInput placeholder="Word No. 4" formControlName="four">
+                <!-- <zorb-error [control]="form.controls['four']" label="Word No. 4"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Word No. 8" formControlName="eight">
+                <!-- <zorb-error [control]="form.controls['eight']" label="Word No. 8"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Word No. 12" formControlName="twelve">
+                <!-- <zorb-error [control]="form.controls['twelve']" label="Word No. 12"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Word No. 16" formControlName="sixteen">
+                <!-- <zorb-error [control]="form.controls['sixteen']" label="Word No. 16"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Word No. 20" formControlName="twenty">
+                <!-- <zorb-error [control]="form.controls['twenty']" label="Word No. 20"></zorb-error> -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Word No. 24" formControlName="twentyFour">
+                <!-- <zorb-error [control]="form.controls['twentyFour']" label="Word No. 24"></zorb-error> -->
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button *ngIf="form.valid" mat-button (click)="checkAndCreate()">Check And Create Wallet</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

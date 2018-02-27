@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateWalletService } from '..';
+import { CreateWalletService } from '../services/create-wallet.service';
 
 @Component({
     selector: 'zorb-mnemonic',

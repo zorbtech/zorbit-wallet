@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiService, GlobalService } from '../../../shared/services';
 import { CreateWalletService } from '../services/create-wallet.service';
 import { Wallet } from '../models/wallet';
+import { WalletCreation } from '../../../shared/dtos';
 
 @Component({
     selector: 'zorb-create-wallet',
@@ -33,7 +34,7 @@ export class CreateWalletComponent {
     }
 
     public next(): void {
-        const wallet = new Wallet(this.form.value.name, this.form.value.password);
+        const wallet = new WalletCreation(this.form.value.name, "", this.form.value.password);
         this.createWallService.Wallet = wallet;
         this.router.navigate(['/wallet/mnemonic']);
     }

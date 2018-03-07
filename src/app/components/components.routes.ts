@@ -14,5 +14,5 @@ export const componentsRoutes: Routes = [
     { path: 'wallet/create', component: CreateWalletComponent},
     { path: 'wallet/mnemonic', component: MnemonicComponent},
     { path: 'wallet/confirm-mnemonic', component: ConfirmMnemonicComponent},
-    { path: 'restore-wallet', component: RestoreWalletComponent}
+    { path: 'wallet/restore', component: RestoreWalletComponent}
 ]

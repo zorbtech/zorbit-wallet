@@ -1,1 +1,26 @@
-<h1>Restore Wallet Component</h1>
+<form [formGroup]="form">
+    <mat-card>
+        <mat-card-title>Restore Wallet</mat-card-title>
+        <mat-card-content>
+            <mat-form-field>
+                <input matInput placeholder="Name" formControlName="name">
+                <zorb-error [control]="form.controls['name']" label="Name"></zorb-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Earliest Possible Creation Date" formControlName="ePCD">
+                <zorb-error [control]="form.controls['ePCD']" label="Earliest Possible Creation Date"></zorb-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Secret Words" formControlName="secretWords">
+                <zorb-error [control]="form.controls['secretWords']" label="Secret Words"></zorb-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" formControlName="password" type="password">
+                <zorb-error [control]="form.controls['password']" label="Password"></zorb-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="restore()">Restore</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

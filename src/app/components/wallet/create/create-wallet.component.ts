@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService, GlobalService } from '../../../shared/services';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { GlobalService } from '../../../shared/services';
 import { CreateWalletService } from '../services/create-wallet.service';
 import { Wallet } from '../models/wallet';
-import { WalletCreation } from '../../../shared/dtos';
+import { WalletCreation } from '@zorbtech/zorbit-api-test';
 
 @Component({
     selector: 'zorb-create-wallet',

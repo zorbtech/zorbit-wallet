@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService, GlobalService } from '../../../shared/services';
-import { WalletRecovery } from '../../../shared/dtos';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { GlobalService } from '../../../shared/services';
+import { WalletRecovery } from '@zorbtech/zorbit-api-test';
 
 @Component({
     selector: 'zorb-restore-wallet',

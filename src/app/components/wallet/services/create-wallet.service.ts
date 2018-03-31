@@ -1,8 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Wallet } from '../models/wallet';
-import { ApiService, GlobalService } from '../../../shared/services';
+import { GlobalService } from '../../../shared/services';
 import { Subscription } from 'rxjs/Subscription';
-import { WalletCreation } from '../../../shared/dtos';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { WalletCreation } from '@zorbtech/zorbit-api-test';
 
 @Injectable()
 export class CreateWalletService implements OnDestroy{

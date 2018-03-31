@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { WalletLoad } from '../../shared/dtos';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { WalletLoad } from '@zorbtech/zorbit-api-test';
 
-import { ApiService, GlobalService } from '../../shared/services';
+import { GlobalService } from '../../shared/services';
 
 import { ErrorStateMatcherImpl } from '../../shared/validation';
 

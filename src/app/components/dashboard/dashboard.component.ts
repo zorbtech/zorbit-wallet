@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService, GlobalService } from '../../shared/services';
-import { WalletInfo, WalletBalanceModel, WalletHistory, TransactionItem, TransactionSending, TransactionBuilding, WalletBuildTransactionModel } from '../../shared/dtos';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { GlobalService } from '../../shared/services';
+import { WalletInfo, WalletBalanceModel, WalletHistory, TransactionItem, TransactionSending, TransactionBuilding, WalletBuildTransactionModel } from '@zorbtech/zorbit-api-test';
 import { Subscription } from 'rxjs/Subscription';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SendModalComponent, SendModalModel } from './modals/send.component';

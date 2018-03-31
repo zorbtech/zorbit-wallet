@@ -14,7 +14,8 @@ import {
 import { NavigationComponent } from './components';
 import { ErrorComponent } from './validation';
 
-import { ApiService, GlobalService } from './services';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { GlobalService } from './services';
 
 const modules = [
     CommonModule,

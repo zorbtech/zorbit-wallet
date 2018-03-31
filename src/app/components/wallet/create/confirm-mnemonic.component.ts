@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router }  from '@angular/router';
 import { CreateWalletService } from '../services/create-wallet.service';
-import { ApiService, GlobalService } from '../../../shared/services';
-import { WalletCreation } from '../../../shared/dtos';
+import { GlobalService } from '../../../shared/services';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { WalletCreation } from '@zorbtech/zorbit-api-test';
 
 @Component({
     selector: 'zorb-confirm-mnemnonic',
@@ -12,7 +13,7 @@ import { WalletCreation } from '../../../shared/dtos';
 
 export class ConfirmMnemonicComponent {
 
-    private form : FormGroup;
+    public form : FormGroup;
 
     public constructor(
         private createWalletService: CreateWalletService,

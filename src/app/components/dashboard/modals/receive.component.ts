@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { ApiService, GlobalService } from '../../../shared/services';
-import { WalletInfo, HdAccount } from '../../../shared/dtos';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { GlobalService } from '../../../shared/services';
+import { WalletInfo, HdAccount } from '@zorbtech/zorbit-api-test';
 
 @Component({
     selector: 'zorb-receive',

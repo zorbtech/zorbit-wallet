@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService, GlobalService } from '../../shared/services';
-import { TransactionItem, WalletHistory, WalletInfo } from '../../shared/dtos';
+import { ApiService } from '@zorbtech/zorbit-api-test';
+import { GlobalService } from '../../shared/services';
+import { TransactionItem, WalletHistory, WalletInfo } from '@zorbtech/zorbit-api-test';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
